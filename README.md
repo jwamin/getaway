@@ -39,6 +39,19 @@ From the command line:
 xcodebuild -project Getaway.xcodeproj -scheme Getaway -destination 'platform=macOS' build
 ```
 
+## Swift Playgrounds (iOS / iPadOS)
+
+`GetawayPlayground.swiftpm` is an app playground version for Swift Playgrounds 4+ on iPad or iPhone (iOS 17 or later).
+
+1. Copy or AirDrop the `GetawayPlayground.swiftpm` folder to the device (zip it first if your transfer method needs a single file), or drag it into Swift Playgrounds on a Mac.
+2. Open it in Swift Playgrounds and tap Run.
+
+The Metal shaders are compiled from source at launch, since Swift Playgrounds can't be relied on to build `.metal` files, so the first start takes a moment. The playground is generated from the files in `Getaway/`; don't edit it by hand. After changing app code or shaders, regenerate and commit it:
+
+```sh
+scripts/make-playground.sh
+```
+
 ## Controls
 
 | Action | macOS | iOS / iPadOS |
@@ -69,6 +82,9 @@ xcodebuild -project Getaway.xcodeproj -scheme Getaway -destination 'platform=mac
 | `Getaway/TerrainMTKView.swift` | `MTKView` subclasses handling AppKit and UIKit keyboard, mouse and touch input |
 | `Getaway/MetalTerrainView.swift` | SwiftUI wrapper |
 | `Getaway/ContentView.swift` | Root view and HUD overlay |
+| `Getaway/ShaderLibrary.swift` | Loads the compiled shader library (the playground swaps in a runtime-compiling version) |
+| `scripts/make-playground.sh` | Generates `GetawayPlayground.swiftpm` from the app sources |
+| `GetawayPlayground.swiftpm` | Generated Swift Playgrounds app (do not edit) |
 | `Getaway/AppIcon.icon` | Layered Liquid Glass app icon (edit in Icon Composer) |
 
 ## Notes

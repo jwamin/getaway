@@ -83,7 +83,8 @@ final class Renderer: NSObject, MTKViewDelegate {
     init(view: MTKView, input: InputState, hud: HUDModel) throws {
         guard let device = view.device else { throw RendererError.noDevice }
         guard let queue = device.makeCommandQueue() else { throw RendererError.resourceCreation("command queue") }
-        guard let library = device.makeDefaultLibrary() else { throw RendererError.resourceCreation("shader library") }
+
+        let library = try ShaderLibrary.make(device: device)
 
         self.device = device
         self.commandQueue = queue

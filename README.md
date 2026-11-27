@@ -85,7 +85,12 @@ scripts/make-playground.sh
 | `Getaway/ShaderLibrary.swift` | Loads the compiled shader library (the playground swaps in a runtime-compiling version) |
 | `scripts/make-playground.sh` | Generates `GetawayPlayground.swiftpm` from the app sources |
 | `GetawayPlayground.swiftpm` | Generated Swift Playgrounds app (do not edit) |
+| `docs/engine/` | In-depth documentation of the rendering techniques |
 | `Getaway/AppIcon.icon` | Layered Liquid Glass app icon (edit in Icon Composer) |
+
+## Engine documentation
+
+Detailed write-ups of how the renderer works are in [`docs/engine`](docs/engine/README.md): the frame structure, [vertex and fragment shaders](docs/engine/01-vertex-and-fragment-shaders.md), [tessellation](docs/engine/02-tessellation.md) and [volumetric clouds](docs/engine/03-volumetric-clouds.md).
 
 ## Notes
 
